@@ -17,5 +17,8 @@ describe("User login and profile access", () => {
 
     // Verify the user is logged in and is on their profile page
     cy.get("h4").contains("MHerholdt94_test");
+    cy.url().should((url) => {
+      expect(url).to.include("?view=profile");
+    });
   });
 });
