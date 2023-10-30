@@ -59,6 +59,7 @@ describe("Login form validation", () => {
     // Fill in wrong email address domain and submit
     cy.get("input#loginEmail").type("@gmail.com", { delay: 100 });
     cy.get("input#loginPassword").type("{enter}");
+    cy.wait(1000);
 
     // Expect error message (must be valid Noroff email)
     cy.get("input#loginEmail:invalid").should("have.length", 1);
