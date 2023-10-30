@@ -4,6 +4,11 @@ describe("User login and profile access", () => {
     cy.visit("http://localhost:5500");
     cy.wait(1000);
 
+    // Intercept the authentication request
+    cy.intercept("https://nf-api.onrender.com/api/v1/social/auth/login").as(
+      "authLogin",
+    );
+
     // Click the "login" button
     cy.get("#registerModal .modal-footer button:nth-child(2)").click();
     cy.wait(1000);
@@ -14,6 +19,9 @@ describe("User login and profile access", () => {
     });
     cy.get("input#loginPassword").type("test1234{enter}", { delay: 100 });
     cy.wait(1000);
+
+    // Wait for the authentication request to complete
+    cy.wait("@authLogin").its("response.statusCode").should("eq", 200);
 
     // Verify the user is logged in and is on their profile page
     cy.get("h4").contains("MHerholdt94_test");
