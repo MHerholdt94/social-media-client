@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 env:
-  TEST_USER_EMAIL: ${{secrets.TEST_USER_EMAIL}}
-  TEST_USER_PASSWORD: ${{secrets.TEST_USER_PASSWORD}}
-  API_LOGIN_URL: ${{secrets.API_LOGIN_URL}}
+  TEST_USER_EMAIL: ${{ secrets.TEST_USER_EMAIL }}
+  TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+  API_LOGIN_URL: ${{ secrets.API_LOGIN_URL }}
 
 jobs:
   run-e2e-tests:
