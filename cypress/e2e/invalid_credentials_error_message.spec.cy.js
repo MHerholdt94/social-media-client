@@ -1,4 +1,8 @@
 describe("Login form validation", () => {
+  beforeEach(() => {
+    cy.clearLocalStorage();
+  })
+  
   it("fails with wrong credentials", () => {
     // Visit the website
     cy.visit(Cypress.env("baseUrl"));

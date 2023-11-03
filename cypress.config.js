@@ -5,8 +5,8 @@ module.exports = defineConfig({
     env: {
       baseUrl: "https://mherholdt94.github.io/social-media-client/",
       apiLoginUrl: "https://nf-api.onrender.com/api/v1/social/auth/login",
-      email: process.env.TEST_USER_EMAIL,
-      password: process.env.TEST_USER_PASSWORD,
+      email: "MHerholdt94_test@stud.noroff.no",
+      password: "test1234",
     },
   },
 });

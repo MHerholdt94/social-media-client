@@ -1,4 +1,8 @@
 describe("Logout function", () => {
+  beforeEach(() => {
+    cy.clearLocalStorage();
+  })
+  
   it("logs out the user", () => {
     // Visit the website
     cy.visit(Cypress.env("baseUrl"));
@@ -18,6 +22,9 @@ describe("Logout function", () => {
     );
     cy.wait(2000);
 
+    // Check if token exists in local storage
+    cy.window().its("localStorage.token").should("exist");
+
     // Click the "logout" button
     cy.get("button[data-auth='logout']").click();
     cy.wait(1000);
@@ -25,5 +32,8 @@ describe("Logout function", () => {
     // Expect rediraction to registration form
     cy.url().should("eq", Cypress.env("baseUrl"));
     cy.get("h5").contains("Create Profile");
+
+    // Check if token is removed from local storage
+    cy.window().its("localStorage.token").should("not.exist");
   });
 });
