@@ -2,7 +2,7 @@ describe("User login and profile access", () => {
   it("logs in user and accesses profile", () => {
     // Visit the website
     cy.visit(Cypress.env("baseUrl"));
-    cy.wait(1000);
+    cy.wait(2000);
 
     cy.intercept(`${Cypress.env("apiLoginUrl")}`).as("authLogin");
 
@@ -20,7 +20,7 @@ describe("User login and profile access", () => {
         delay: 100,
       },
     );
-    cy.wait(1000);
+    cy.wait(2000);
 
     // Wait for the authentication request to complete
     cy.wait("@authLogin").its("response.statusCode").should("eq", 200);

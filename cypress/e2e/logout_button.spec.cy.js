@@ -2,7 +2,7 @@ describe("Logout function", () => {
   it("logs out the user", () => {
     // Visit the website
     cy.visit(Cypress.env("baseUrl"));
-    cy.wait(1000);
+    cy.wait(2000);
 
     // Click the "login" button
     cy.get("#registerModal .modal-footer button:nth-child(2)").click();

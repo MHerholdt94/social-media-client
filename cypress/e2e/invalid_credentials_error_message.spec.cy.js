@@ -2,7 +2,7 @@ describe("Login form validation", () => {
   it("fails with wrong credentials", () => {
     // Visit the website
     cy.visit(Cypress.env("baseUrl"));
-    cy.wait(1000);
+    cy.wait(2000);
 
     // Intercept the authentication request
     cy.intercept(Cypress.env("apiLoginUrl")).as("authLogin");
@@ -30,7 +30,7 @@ describe("Login form validation", () => {
   it("fails with invalid email credentials", () => {
     // Visit the website
     cy.visit(Cypress.env("baseUrl"));
-    cy.wait(1000);
+    cy.wait(2000);
 
     // Click the "login" button
     cy.get("#registerModal .modal-footer button:nth-child(2)").click();
