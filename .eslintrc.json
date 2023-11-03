@@ -4,9 +4,6 @@
     "es2021": true,
     "node": true
   },
-  "globals": {
-    "global": "readonly"
-  },
   "extends": "eslint:recommended",
   "overrides": [
     {
