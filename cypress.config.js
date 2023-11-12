@@ -1,0 +1,12 @@
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  e2e: {
+    env: {
+      baseUrl: "https://mherholdt94.github.io/social-media-client/",
+      apiLoginUrl: "https://nf-api.onrender.com/api/v1/social/auth/login",
+      email: "MHerholdt94_test@stud.noroff.no",
+      password: "test1234",
+    },
+  },
+});
